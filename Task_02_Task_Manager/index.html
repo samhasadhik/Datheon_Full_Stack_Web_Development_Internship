@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORDINA — Productivity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================
+       LOGIN SCREEN
+       ========================================= -->
+  <div class="login-screen" id="login-screen">
+    <div class="login-card fade-in">
+      <div class="brand" style="justify-content: center; margin-bottom: 24px;">
+        <div class="brand-logo">
+          <!-- Fixed Path -->
+          <img src="assets/images/Logo.png" alt="Datheon Logo" style="width: 40px; height: 40px; object-fit: contain;" />
+        </div>
+        <h2 style="font-size: 1.5rem;">ORDINA <span style="font-size: 0.8rem; font-weight: 400; color: var(--text-secondary); display: block; margin-top: -4px;"></span></h2>
+      </div>
+      <h1>Welcome back.</h1>
+      <p>Organise better. Achieve more.</p>
+      
+      <form id="login-form" class="login-form">
+        <div class="input-group">
+          <label for="login-name">Your Name</label>
+          <input type="text" id="login-name" placeholder="e.g. Alex" required autocomplete="off" />
+        </div>
+        <div class="input-group">
+          <label for="login-email">Email address</label>
+          <input type="email" id="login-email" placeholder="alex@example.com" required />
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 8px;">Enter Workspace</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================
+       MAIN APP
+       ========================================= -->
+  <div class="app-container hidden" id="app-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- Fixed Path -->
+          <img src="assets/images/Logo.png" alt="Datheon Logo" style="width: 32px; height: 32px; object-fit: contain;" />
+        </div>
+        <h2>ORDINA <span style="font-size: 0.65rem; font-weight: 500; color: var(--text-secondary); display: block; margin-top: -2px; letter-spacing: 0.5px; text-transform: uppercase;"></span></h2>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active" data-view="overview">
+          <span class="nav-icon">○</span> Overview
+        </a>
+        <a href="#" class="nav-item" data-view="all">
+          <span class="nav-icon">☰</span> All Tasks
+        </a>
+        <a href="#" class="nav-item" data-view="today">
+          <span class="nav-icon">☀</span> Today
+        </a>
+        <a href="#" class="nav-item" data-view="upcoming">
+          <span class="nav-icon">⏱</span> Upcoming
+        </a>
+        <a href="#" class="nav-item" data-view="completed">
+          <span class="nav-icon">✓</span> Completed
+        </a>
+      </nav>
+
+      <div class="nav-section-title">Categories</div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item" data-category="work"><span class="dot work"></span> Work</a>
+        <a href="#" class="nav-item" data-category="personal"><span class="dot personal"></span> Personal</a>
+        <a href="#" class="nav-item" data-category="study"><span class="dot study"></span> Study</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#" class="nav-item" id="open-settings-btn"><span class="nav-icon">⚙</span> Settings</a>
+        <a href="#" class="nav-item" id="logout-btn"><span class="nav-icon">⏻</span> Log out</a>
+        
+        <a href="#" class="user-profile" id="open-profile-btn" style="text-decoration: none; cursor: pointer;">
+          <div class="avatar" id="user-avatar">A</div>
+          <div class="user-info">
+            <span class="user-name" id="user-name-display">Alex</span>
+            <span class="user-email" id="user-email-display">alex@ordina.app</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="greeting">
+          <h1 id="greeting-text">Good morning, Alex.</h1>
+          <p>Let's make today productive.</p>
+        </div>
+        <div class="header-actions">
+          <span class="current-date" id="current-date"></span>
+          
+          <!-- Notification Bell & Panel -->
+          <div class="notification-wrapper">
+            <button class="icon-btn" id="notification-btn" aria-label="Notifications">🔔</button>
+            <div class="notification-dropdown hidden" id="notification-dropdown">
+              <div class="notif-header">
+                <h3>Notifications</h3>
+                <span class="notif-badge" id="notif-count">0 new</span>
+              </div>
+              <div class="notif-list" id="notif-list">
+                <!-- Dynamic notifications render here -->
+              </div>
+            </div>
+          </div>
+
+          <div class="avatar small" id="header-avatar">A</div>
+        </div>
+      </header>
+
+      <!-- DASHBOARD VIEW -->
+      <div id="dashboard-view">
+        <!-- Productivity Overview -->
+        <section class="stats-grid">
+          <div class="stat-card fade-in">
+            <div class="stat-header">
+              <span class="stat-title">Total Tasks</span>
+              <span class="stat-icon">📋</span>
+            </div>
+            <span class="stat-value" id="stat-total">0</span>
+          </div>
+          <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+            <div class="stat-header">
+              <span class="stat-title">Active Tasks</span>
+              <span class="stat-icon">⏳</span>
+            </div>
+            <span class="stat-value" id="stat-active">0</span>
+          </div>
+          <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+            <div class="stat-header">
+              <span class="stat-title">Completed Tasks</span>
+              <span class="stat-icon">✅</span>
+            </div>
+            <span class="stat-value" id="stat-completed">0</span>
+          </div>
+        </section>
+
+        <!-- Task Creation -->
+        <section class="task-creation-area fade-in" style="animation-delay: 0.3s;">
+          <div class="creation-header" id="toggle-creation-panel">
+            <div class="creation-title">
+              <div class="plus-icon" id="plus-icon">+</div>
+              <h3>Add a new task...</h3>
+            </div>
+            <span class="creation-hint">Press <kbd>N</kbd> to add</span>
+          </div>
+
+          <form class="task-form hidden" id="task-form">
+            <div class="form-row">
+              <input type="text" id="task-title" placeholder="What needs to be done?" required class="input-title" autocomplete="off" />
+              <input type="date" id="task-date" class="input-date" required />
+            </div>
+            <textarea id="task-desc" placeholder="Add a description (optional)..." class="input-desc" rows="2"></textarea>
+            <div class="form-row split">
+              <div class="select-group">
+                <label for="task-category">Category</label>
+                <select id="task-category">
+                  <option value="work">Work</option>
+                  <option value="personal">Personal</option>
+                  <option value="study">Study</option>
+                </select>
+              </div>
+              <div class="select-group">
+                <label for="task-priority">Priority</label>
+                <select id="task-priority">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" id="btn-cancel">Cancel</button>
+              <button type="submit" class="btn-primary">Create Task</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Task Management -->
+        <section class="task-management-area fade-in" style="animation-delay: 0.4s;">
+          <div class="management-header">
+            <h2 id="page-title">Your Tasks</h2>
+            <div class="task-count-badge" id="task-count">0 tasks</div>
+          </div>
+
+          <div class="control-bar">
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="search-input" placeholder="Search tasks..." />
+            </div>
+            <div class="filter-group" id="filter-group">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="active">Active</button>
+              <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <div class="sort-dropdown">
+              <select id="sort-select">
+                <option value="date-asc">Due Date (Soonest)</option>
+                <option value="date-desc">Due Date (Latest)</option>
+                <option value="priority">Priority</option>
+                <option value="manual">Manual (Drag)</option>
+              </select>
+            </div>
+          </div>
+
+          <ul id="task-list" class="task-list"></ul>
+          <div class="empty-state hidden" id="empty-state">
+            <div class="empty-icon">🍃</div>
+            <h3>No tasks found</h3>
+            <p>Enjoy your free time or create a new task.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- =========================================
+           USER PROFILE VIEW
+           ========================================= -->
+      <section class="profile-view hidden" id="profile-view">
+        <div class="profile-card fade-in">
+          <div class="profile-header">
+            <div class="profile-avatar-large" id="profile-avatar-large">A</div>
+            <div class="profile-header-info">
+              <h2 id="profile-title-name">Alex</h2>
+              <p id="profile-title-email">alex@ordina.app</p>
+            </div>
+          </div>
+          
+          <div class="profile-stats">
+            <div class="p-stat">
+              <span class="p-stat-label">Tasks Created</span>
+              <span class="p-stat-value" id="profile-total-created">0</span>
+            </div>
+            <div class="p-stat">
+              <span class="p-stat-label">Tasks Completed</span>
+              <span class="p-stat-value" id="profile-total-completed">0</span>
+            </div>
+            <div class="p-stat">
+              <span class="p-stat-label">Productivity</span>
+              <span class="p-stat-value" id="profile-productivity">0%</span>
+            </div>
+          </div>
+
+          <hr class="profile-divider" />
+
+          <form id="profile-form" class="profile-form">
+            <h3>Account Settings</h3>
+            <div class="form-row split">
+              <div class="input-group">
+                <label for="profile-name-input">Full Name</label>
+                <input type="text" id="profile-name-input" required />
+              </div>
+              <div class="input-group">
+                <label for="profile-email-input">Email Address</label>
+                <input type="email" id="profile-email-input" required />
+              </div>
+            </div>
+            <div class="form-actions" style="margin-top: 24px;">
+              <button type="submit" class="btn-primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- =========================================
+           SETTINGS VIEW
+           ========================================= -->
+      <section class="profile-view hidden" id="settings-view">
+        <div class="profile-card fade-in">
+          <div class="profile-header" style="margin-bottom: 24px;">
+            <div class="profile-header-info">
+              <h2>Settings</h2>
+              <p>Manage your app preferences</p>
+            </div>
+          </div>
+          
+          <hr class="profile-divider" style="margin-top: 0;" />
+
+          <div class="settings-group">
+            <h3>Appearance</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">Customize how ORDINA looks on your screen.</p>
+            <div class="theme-toggle-wrapper">
+              <button class="theme-btn active" id="theme-light-btn">☀ Light Mode</button>
+              <button class="theme-btn" id="theme-dark-btn">🌙 Dark Mode</button>
+            </div>
+          </div>
+
+          <hr class="profile-divider" />
+
+          <!-- NEW: LocalStorage API Demonstration -->
+          <div class="settings-group">
+            <h3>LocalStorage Data</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">Raw JSON data currently saved in your browser.</p>
+            <pre id="storage-preview" style="background: var(--bg-main); padding: 16px; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-secondary); overflow-x: auto; border: 1px solid var(--border-color);"></pre>
+          </div>
+
+          <hr class="profile-divider" />
+
+          <div class="settings-group">
+            <h3>Danger Zone</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">Clear all tasks and app data from your browser's localStorage.</p>
+            <button class="btn-primary" style="background: var(--color-danger);" id="clear-data-btn">Clear All Data</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- =========================================
+       EDIT TASK MODAL
+       ========================================= -->
+  <div class="modal-overlay hidden" id="edit-modal">
+    <div class="modal-content fade-in">
+      <div class="modal-header">
+        <h2>Edit Task</h2>
+        <button class="close-btn" id="close-edit-modal">✕</button>
+      </div>
+      <form id="edit-form" class="task-form" style="padding: 0; border: none;">
+        <input type="hidden" id="edit-id" />
+        <div class="form-row">
+          <input type="text" id="edit-title" required class="input-title" autocomplete="off" />
+          <input type="date" id="edit-date" class="input-date" required />
+        </div>
+        <textarea id="edit-desc" placeholder="Add a description (optional)..." rows="2"></textarea>
+        <div class="form-row split">
+          <div class="select-group">
+            <label for="edit-category">Category</label>
+            <select id="edit-category">
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="study">Study</option>
+            </select>
+          </div>
+          <div class="select-group">
+            <label for="edit-priority">Priority</label>
+            <select id="edit-priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions" style="margin-top: 16px;">
+          <button type="button" class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+          <button type="submit" class="btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================
+       DELETE CONFIRMATION MODAL
+       ========================================= -->
+  <div class="modal-overlay hidden" id="delete-modal">
+    <div class="modal-content fade-in" style="max-width: 380px; text-align: center;">
+      <div class="empty-icon" style="font-size: 2rem; margin-bottom: 12px;">🗑️</div>
+      <h2 style="margin-bottom: 8px;">Delete Task?</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.9rem;">This action cannot be undone.</p>
+      <div class="form-actions" style="justify-content: center;">
+        <button type="button" class="btn-cancel" id="cancel-delete-btn">Cancel</button>
+        <button type="button" class="btn-primary" style="background: var(--color-danger);" id="confirm-delete-btn">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

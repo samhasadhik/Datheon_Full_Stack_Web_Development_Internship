@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samha Sadhik | Software Engineer</title>
+       <!-- Favicons -->
+    <link rel="icon" type="image/png" href="assets\favicon.png">
+    <link rel="icon" type="image/png" href="assets\favicon.png">
+    <link rel="apple-touch-icon" href="aassets\favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="grid-bg"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <!-- Tech Window Logo -->
+        <div class="code-logo">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="code-text">&lt;Samha /&gt;</span>
+        </div>
+        
+        <nav class="nav">
+            <a href="#about" class="nav-link"> About</a>
+            <a href="#skills" class="nav-link"> Skills</a>
+            <a href="#projects" class="nav-link"> Work</a>
+            <a href="#contact" class="nav-link"> Contact</a>
+            
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="icon-sun">☀</span>
+                <span class="icon-moon">☾</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Left Vertical Rail -->
+        <aside class="timeline-rail">
+            <div class="rail-line"></div>
+        </aside>
+
+        <div class="content-wrapper">
+            <!-- 01 Hero Section -->
+            <section class="hero section-reveal" id="home">
+                <div class="hero-content">
+                    <p class="hero-label">
+                        <span class="line"></span> Hi, I'm Samha. A Software Developer.
+                    </p>
+                    <h1 class="hero-title">
+                        Building digital<br>
+                        experiences that<span class="dot">.</span><br>
+                        <span class="text-outline">actually work.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        A coder girl passionate about clean architecture, thoughtful UI/UX, and solving complex problems with elegant code.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary magnetic">Explore My Work ↗</a>
+                       <!-- target="_blank" opens it in a new tab. We remove the 'download' attribute so it previews. -->
+<a href="assets\Samha_Sadhik_CV.pdf" target="_blank" class="btn btn-glass magnetic">View CV ↗</a>
+                    </div>
+                </div>
+
+                <div class="hero-visuals">
+                    <div class="terminal-card">
+                        <div class="terminal-header">
+                            <span>developer.js</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="keyword">const</span> developer = {</p>
+                            <p class="indent">name: <span class="string">'Samha Sadhik'</span>,</p>
+                            <p class="indent">role: <span class="string">'Software Engineer'</span>,</p>
+                            <p class="indent">skills: [<span class="string">'React'</span>, <span class="string">'Node'</span>, <span class="string">'PHP'</span>],</p>
+                            <p class="indent">passion: <span class="string">'Building for the web'</span></p>
+                            <p>};</p>
+                            <p class="typing-line"><span class="keyword">while</span> (alive) { <span class="function">code</span>(); }<span class="cursor">|</span></p>
+                        </div>
+                        <div class="status-card">
+                            <span class="green-dot"></span>
+                            <span>Available for opportunities</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 02 About Section -->
+            <section class="about section-reveal" id="about">
+                <div class="section-header">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-left-col">
+                        <div class="unique-profile-wrapper">
+                            <div class="rotating-border"></div>
+                            <img src="assets\profile.png" alt="Samha Sadhik" class="profile-image">
+                        </div>
+                        <div class="about-text">
+                            <h3 class="about-lead">Turning caffeine into code and ideas into scalable products.</h3>
+                            <p>My background spans software engineering and hands-on product development. I thrive at the intersection of design and logic—where clean code meets considered design. Currently growing my craft through real-world projects and an internship.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-facts glass-panel">
+                        <div class="fact-row">
+                            <span class="fact-label">EDUCATION</span>
+                            <span class="fact-value">BEng (Hons) in Software Engineering, London Metropolitan University</span>
+                        </div>
+                        <div class="fact-row">
+                            <span class="fact-label">FOUNDATION</span>
+                            <span class="fact-value">HND in Software Engineering, Pearson</span>
+                        </div>
+                        <div class="fact-row">
+                            <span class="fact-label">LOCATION</span>
+                            <span class="fact-value">Kurunegala, Sri Lanka</span>
+                        </div>
+                        <div class="fact-row">
+                            <span class="fact-label">CURRENTLY</span>
+                            <span class="fact-value active-status"><span class="green-dot-small"></span> Junior Developer Intern</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 03 Skills Section -->
+            <section class="skills section-reveal" id="skills">
+                <div class="section-header">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Technical Toolkit</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="skills-container">
+                    <div class="skill-category-card glass-panel">
+                        <h4>LANGUAGES</h4>
+                        <div class="skill-pills">
+                            <span>JavaScript</span><span>TypeScript</span><span>C#</span><span>PHP</span><span>Java</span>
+                        </div>
+                    </div>
+                    <div class="skill-category-card glass-panel">
+                        <h4>FRONTEND</h4>
+                        <div class="skill-pills">
+                            <span>React</span><span>HTML5</span><span>CSS3</span><span>Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="skill-category-card glass-panel">
+                        <h4>BACKEND</h4>
+                        <div class="skill-pills">
+                            <span>Node.js</span><span>Express</span><span>.NET</span>
+                        </div>
+                    </div>
+                    <div class="skill-category-card glass-panel">
+                        <h4>DATABASES</h4>
+                        <div class="skill-pills">
+                            <span>Firebase Firestore</span><span>MySQL</span><span>SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                                 <!-- 04 Projects Section -->
+            <section class="projects section-reveal" id="projects">
+                <div class="section-header">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Projects</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="projects-subhead">
+                    <p>Some things I've built. Each solving a unique problem.</p>
+                    <span>2023 — 2026</span>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- 01. GoalLink -->
+                    <div class="project-card large glass-panel">
+                        <div class="card-image">
+                            <img src="assets/Goallink.png" alt="GoalLink">
+                            <span class="badge live">● LIVE PROJECT</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-top">
+                                <span class="card-num">01</span>
+                                <span class="card-type">LIVE PLATFORM</span>
+                            </div>
+                            <h3>GoalLink</h3>
+                            <p>A football community platform connecting players, clubs, and opportunities in one place.</p>
+                            <div class="card-bottom">
+                                <div class="tags">
+                                    <span>REACT</span><span>NODE</span><span>FIREBASE</span>
+                                </div>
+                                <a href="https://goal-link.vercel.app/" target="_blank" class="btn-arrow">↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 02. BookNest -->
+                    <div class="project-card small glass-panel">
+                        <div class="card-content">
+                            <div class="card-top">
+                                <span class="card-num">02</span>
+                                <span class="card-type">ACADEMIC</span>
+                            </div>
+                            <h3>BookNest</h3>
+                            <p>A trusted marketplace for giving pre-loved books their next chapter.</p>
+                            <div class="card-bottom">
+                                <div class="tags"><span>PHP</span><span>MYSQL</span></div>
+                                <a href="YOUR_BOOKNEST_LINK" target="_blank" class="btn-arrow">↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                                       <!-- 03. Grifindo -->
+                    <div class="project-card small glass-panel">
+                        <div class="card-content">
+                            <div class="card-top">
+                                <span class="card-num">03</span>
+                                <span class="card-type">ACADEMIC PROJECT</span>
+                            </div>
+                            <h3>Grifindo</h3>
+                            <p>Employee payroll and leave management system built using C# and SQL Server.</p>
+                            
+                            <div class="card-bottom">
+                                <div class="tags"><span>C#</span><span>SQL</span></div>
+                                <!-- Replaced the link with a subtle label -->
+                                <span class="code-label">Code on request</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 04. EVC (e-Video Cloud) - NOW MATCHES GOALLINK LAYOUT -->
+                    <div class="project-card large glass-panel">
+                        <!-- The image is inside a special presentation box to keep it looking clean -->
+                        <div class="card-image evc-mockup-box">
+                            <img src="assets/evc.png" alt="EVC Platform">
+                        </div>
+                        
+                        <div class="card-content">
+                            <div class="card-top">
+                                <span class="card-num">04</span>
+                                <span class="card-type">CASE STUDY</span>
+                            </div>
+                            <h3>EVC (e-Video Cloud)</h3>
+                            <p>A cloud-based video streaming platform concept designed for a Sri Lankan tech start-up.</p>
+                            
+                            <ul class="project-details-list">
+                                <li>Conducted user research & created 3 detailed personas.</li>
+                                <li>Designed high-fidelity wireframes & prototypes in Figma.</li>
+                                <li>Iterated designs based on usability testing.</li>
+                            </ul>
+
+                            <div class="card-bottom" style="margin-top: 20px;">
+                                <div class="tags">
+                                    <span>FIGMA</span><span>UI DESIGN</span><span>UX RESEARCH</span>
+                                </div>
+                                <!-- Figma link on the arrow button -->
+                                <a href="https://www.figma.com/design/y9ZX4UYjfL4dJoXtwt4gRw/EVC?node-id=0-1&t=UqZ9vWZIMnXJGFow-1" target="_blank" class="btn-arrow">↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 05 Contact Section -->
+            <section class="contact section-reveal" id="contact">
+                <div class="contact-header">
+                    <p class="hero-label"><span class="line"></span> LET'S CONNECT</p>
+                    <h2 class="contact-title">Ready to build<br>something<span class="dot">?</span></h2>
+                </div>
+
+                <!-- Terminal Style Contact -->
+                <div class="terminal-contact glass-panel">
+                    <div class="terminal-bar">
+                        <span>contact.sh</span>
+                    </div>
+                    <div class="terminal-content">
+                        <a href="mailto:sadhiksamha@gmail.com" class="term-link">
+                            <span class="prompt">$</span> send_email <span class="string">"sadhiksamha@gmail.com"</span> <span class="arrow">↗</span>
+                        </a>
+                        <a href="https://github.com/samhasadhik" target="_blank" class="term-link">
+                            <span class="prompt">$</span> open_github <span class="string">"github.com/samhasadhik"</span> <span class="arrow">↗</span>
+                        </a>
+                        <a href="https://linkedin.com/in/samha-sadhik" target="_blank" class="term-link">
+                            <span class="prompt">$</span> connect_linkedin <span class="string">"in/samha-sadhik"</span> <span class="arrow">↗</span>
+                        </a>
+                        <div class="term-link disabled">
+                            <span class="prompt">$</span> locate <span class="string">"Kurunegala, Sri Lanka"</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-footer">
+                    <div class="contact-footer">
+    <a href="assets\Samha_Sadhik_CV.pdf" download="Samha_Sadhik_CV.pdf" class="btn-text magnetic">Download my CV ↓</a>
+</div>
+                </div>
+            </section>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <p>Designed & Built by Samha Sadhik &copy; 2026</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
